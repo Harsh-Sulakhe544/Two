@@ -1,0 +1,139 @@
+/* Basic Reset */
+body, html {
+
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  background: #f9f9f9;
+  color: #111;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+/* Navbar Styling */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #000;
+  padding: 12px 20px;
+  
+}
+
+.nav-link {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  background-color: red;
+  color: white;
+}
+
+#solveBtn {
+  background-color: #28a745;
+  color: white;
+  width: 100px;
+  border: none;
+  padding: 8px 16px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#solveBtn:hover {
+  background-color: #218838;
+}
+
+#slogan {
+  background: goldenrod;
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  padding: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Section Styling */
+section {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  background: rgb(226, 189, 96);
+  color: #000;
+  margin: 10% auto;
+  padding: 30px;
+  width: 300px;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+}
+
+#closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 40px;
+  font-weight: bolder;
+  cursor: pointer;
+  color: red;
+}
+
+.qr-code {
+  width: 100px;
+  height: 100px;
+  margin: 20px 0;
+  border: 2px dashed #ccc;
+}
+
+.qr-placeholder {
+    height: 240px;
+    width: 240px;
+}
+.submit-btn {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+footer {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 14px;
+  font-size: 14px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin-top: 40px;
+}

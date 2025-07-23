@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Two Private Limited </title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- ace editor -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.14/ace.js"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+<nav>
+  <ul>
+    <li><span class="nav-link">TWO2️⃣</span></li>
+  </ul>
+  <button id="solveBtn">Solve</button>
+</nav>
+
+<div id="slogan">
+    TWO — Real Intelligence Needs a Beating Heart ❤️, Not Just Silicon Metalloid.
+    <p style="text-align:center; color:blue;">A PLATFORM FOR RESEARCHERS 🔍 AND CODERS 🧑‍💻 </p>
+</div>
+
+<h2 style="color: blueviolet; text-align:center;">WELCOME TO EXTREME PROGRAMMING | EXP </h2>
+<p style="text-align:center; color:crimson; font-weight:bold;">
+    AI is brilliant — but it still waits for a human to ask the right question.
+  </p>
+
+<div id="question-box"></div>
+
+<section id="why-choose-us" style="padding: 60px 20px; background: #0e0e0e; color: #fff; text-align: center;">
+  <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">💡 Why Choose <span style="color: #00ffd5;">TWO 2️⃣</span>?</h2>
+  
+  <p style="font-size: 1.2rem; max-width: 900px; margin: 0 auto 40px; line-height: 1.7;">
+    🚫 <strong> Tired of grinding 300 questions  </strong> hoping for EXP? <br>
+    ✅ Here, <strong> 1 problem = a true test of your brain’s original logic</strong>.<br><br>
+    
+    🧠 <strong>No hints. No hand-holding. Just You vs. The Impossible.</strong><br><br>
+    
+      🔥 Our questions are 
+      <strong> AI-resistant.  
+      Even GPT fails. Will you?
+    </strong>
+  </p>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto;">
+
+    <div style="background: #1b1b1b; padding: 20px; border-radius: 16px; box-shadow: 0 0 10px rgba(0,255,213,0.2);">
+      <h3>🧩 Questions with Identity</h3>
+      <p>Each question has a soul. Solve things like <em> <strong> "Chapati Overflow Paradox" </strong> </em></p>
+    </div>
+
+    <div style="background: #1b1b1b; padding: 20px; border-radius: 16px; box-shadow: 0 0 10px rgba(0,255,213,0.2);">
+      <h3>🧠 Respect for Thinkers</h3>
+      <p>Our minimal editor is a statement: <strong>we trust your mind, not just your code</strong>.</p>
+    </div>
+
+    <div style="background: #1b1b1b; padding: 20px; border-radius: 16px; box-shadow: 0 0 10px rgba(0,255,213,0.2);">
+      <h3>👑 Pure Mental Bragging Rights</h3>
+      <p>Solving a TWO question isn’t a badge. It’s a <strong>brain medal</strong>. Share it. Flaunt it.</p>
+    </div>
+
+    <div style="background: #1b1b1b; padding: 20px; border-radius: 16px; box-shadow: 0 0 10px rgba(0,255,213,0.2);">
+      <h3>🆚 The Anti-Gamify Systems</h3>
+      <p>We aren’t chasing CP. We’re chasing <strong>depth</strong>.  
+       <strong>While other platforms offer CP, leaderboards, and templates — we offer thinking. Your brain. Your battle</strong>.</p>
+    </div>
+
+    <!-- Humans Are Better Card -->
+    <div style="background: #202020; padding: 20px; border-radius: 16px; box-shadow: 0 0 8px rgba(255,255,255,0.1);">
+      <h3>🧬 Why Humans Are Better</h3>
+      <p>
+        🤖 AI can generate — but it can’t <strong>understand context</strong>, <strong>feel ethics</strong>, or <strong>imagine the future</strong>.
+        <br><br>Humans created AI, the Internet 🌐, even Rocket Science 🚀.<br><br>
+        💡 <strong>Human Thinking = Emotion + Ethics + Imagination</strong>.
+      </p>
+    </div>
+
+    <!-- Misunderstanding Card -->
+    <div style="background: #202020; padding: 20px; border-radius: 16px; box-shadow: 0 0 8px rgba(255,255,255,0.1);">
+      <h3>⚠️ The Misunderstanding</h3>
+      <p>
+        Many think AI = Instant coding. But that’s not <strong>engineering</strong>.
+        <br><br>
+        🛠️ Real devs debug under pressure, make trade-offs, and <strong>think in layers</strong>.
+        <br><br>
+        Let’s break the illusion. Be the human coder AI can’t match.
+      </p>
+    </div>
+
+  </div>
+
+  <p style="font-size: 1rem; margin-top: 50px; opacity: 0.8;">
+    💥 <em>Welcome to the last coding dojo you’ll ever need.</em>
+  </p>
+  <!-- width="700" height="700" -->
+  <div style="box-shadow: 0 0 20px pink;">
+  <canvas id="radarChart"></canvas>
+</div>
+
+</section>
+
+
+  <!-- Modal for Solve -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="closeBtn">&times;</span>
+      <h3 style="color: purple;">JUST FOR <strong> ₹1 </strong>  </h3>
+      <img src="qr-code.jpeg" alt="QR Code" class="qr-placeholder" />
+      <br />
+      <button id="loadQuestion" class="submit-btn">Submit</button>
+    </div>
+  </div>
+
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="main.js"></script>
+
+  <footer>
+  © 2025 TWO. All rights reserved.  Empowering Real Humans.
+</footer>
+
+</body>
+</html>
