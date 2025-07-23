@@ -104,7 +104,7 @@ document.getElementById('loadQuestion').onclick = (event) => {
   const box = document.getElementById('question-box');
   box.innerHTML = `
   <div class="question-flex-container">
-    <img src="Q1.png" alt="Your Question" class="question-img" />
+    <img src="static/Q1.png" alt="Your Question" class="question-img" />
     <div class="question-text">
       <h3>🧠 <strong>Chapati Overflow Paradox</strong></h3>
       <p>
@@ -126,7 +126,7 @@ document.getElementById('loadQuestion').onclick = (event) => {
   <div style="text-align:center;">
     <button id="runCodeBtn" style="background:#007bff; color:white; padding:10px 20px; margin-top:14px; cursor:pointer; margin-bottom:14px;">💻 Run Code</button>
     <div id="gdb-link" style="margin-top:10px; display:none;">
-      <small>Need full power? <a href="https://www.onlinegdb.com/#" target="_blank">Open in GDB Editor ↗</a></small>
+      <small>Need full power? <a href="https://www.onlinegdb.com/#" target="_blank" style="margin-bottom:14px;">Open in GDB Editor ↗</a></small>
     </div>
   </div>
 `;
