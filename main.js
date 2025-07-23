@@ -103,28 +103,33 @@ document.getElementById('loadQuestion').onclick = (event) => {
   modal.style.display = 'none';
   const box = document.getElementById('question-box');
   box.innerHTML = `
-  
-    <div style="background: yellow; padding: 20px; text-align: center; border: 2px solid #000; margin: 20px;">
-      <h3>🧠 Your Question : <strong> Chapati Overflow Paradox </strong> </h3>
-      <img src="Q1.png" alt="Your Question" style="width:100%;height:auto;max-width:400px;" />
-      <h3> WHERE </h3>
-      <h3>L is the Length of the combination of Chapathi and Ghee Overflow</h3>
-      <h3>V is the vegies surface area with Radius as R </h3>
-      <h3>S1 and S2 are the Sabji's Surface Area with Diameters d1 (/) and d2(/)</h3>
-      <h3>"Find the Area remaining which is empty in your plate ??? Write a piece of code for it."</h3>
-      <p><strong>Languages Recommended:</strong> C/C++/Python/Java/JS</p>
-      
-      <p><strong>Default Set : C/C++ </strong> </p>
-
-      <div id="editor" style="height: 300px; width:100%; max-width:600px; margin:auto; border:1px solid #ccc;"></div>
-
-      <button id="runCodeBtn" style="background:#007bff; color:white; padding:10px 20px; margin-top:10px; cursor:pointer;">💻 Run Code</button>
-
-      <div id="gdb-link" style="margin-top: 10px; display:none;">
-        <small>Need full power? <a href="https://www.onlinegdb.com/#" target="_blank">Open in GDB Editor ↗</a></small>
-      </div>
+  <div class="question-flex-container">
+    <img src="Q1.png" alt="Your Question" class="question-img" />
+    <div class="question-text">
+      <h3>🧠 <strong>Chapati Overflow Paradox</strong></h3>
+      <p>
+        <strong>L</strong> is the length of the combination of Chapathi and Ghee Overflow.<br>
+        <strong>V</strong> is the veggies’ surface area (radius = R).<br>
+        <strong>S1</strong> and <strong>S2</strong> are Sabji's areas (diameters d₁ and d₂).<br>
+        <br>
+        “Find the area remaining empty on your plate. Write code for it.”
+      </p>
+      <p>
+        <strong>Languages:</strong> C/C++/Python/Java/JS <br>
+        <strong>Default:</strong> C/C++
+      </p>
     </div>
-  `;
+  </div>
+  <div class="responsive-editor-wrap">
+    <div id="editor" style="height: 300px; width:100%;"></div>
+  </div>
+  <div style="text-align:center;">
+    <button id="runCodeBtn" style="background:#007bff; color:white; padding:10px 20px; margin-top:14px; cursor:pointer; margin-bottom:14px;">💻 Run Code</button>
+    <div id="gdb-link" style="margin-top:10px; display:none;">
+      <small>Need full power? <a href="https://www.onlinegdb.com/#" target="_blank">Open in GDB Editor ↗</a></small>
+    </div>
+  </div>
+`;
 
   // Setup Ace Editor
   const editor = ace.edit("editor");
@@ -132,9 +137,14 @@ document.getElementById('loadQuestion').onclick = (event) => {
   editor.session.setMode("ace/mode/c_cpp"); // Default to C++
   editor.setValue("// Write your code here...\n", 1);
 
+  // Increase font size for better readability
+editor.setOptions({
+  fontSize: "20px"
+});
   // Simulate "Run Code"
   document.getElementById('runCodeBtn').onclick = () => {
     const code = editor.getValue();
+
     console.log("Running code:\n", code);
     alert("🚀 Code captured! For full execution, open in GDB Editor ↗");
     // Or send to backend / save / simulate output here
@@ -145,64 +155,64 @@ document.getElementById('loadQuestion').onclick = (event) => {
 };
 
 
-// // Block right-click
-// document.addEventListener('contextmenu', e => e.preventDefault());
+// Block right-click
+document.addEventListener('contextmenu', e => e.preventDefault());
 
-// // Block copy, cut, paste
-// ['copy', 'cut', 'paste'].forEach(evt =>
-//   document.addEventListener(evt, e => e.preventDefault())
-// );
+// Block copy, cut, paste
+['copy', 'cut', 'paste'].forEach(evt =>
+  document.addEventListener(evt, e => e.preventDefault())
+);
 
-// // Block Ctrl+U, Ctrl+Shift+I, F12 (Inspect)
-// document.addEventListener('keydown', function(e) {
-//   if (
-//     (e.ctrlKey && e.key === 'u') || // view source
-//     (e.ctrlKey && e.shiftKey && e.key === 'I') || // dev tools
-//     e.key === 'F12'
-//   ) {
-//     alert("Don't ❌ use Inspect 💽 Option to copy the question ❓.")
-//     e.preventDefault();
+// Block Ctrl+U, Ctrl+Shift+I, F12 (Inspect)
+document.addEventListener('keydown', function(e) {
+  if (
+    (e.ctrlKey && e.key === 'u') || // view source
+    (e.ctrlKey && e.shiftKey && e.key === 'I') || // dev tools
+    e.key === 'F12'
+  ) {
+    alert("Don't ❌ use Inspect 💽 Option to copy the question ❓.")
+    e.preventDefault();
 
-//   }
-// });
+  }
+});
 
-// // Block refresh keys
-// document.addEventListener("keydown", function (e) {
-//   if (
-//     e.key === "F5" ||
-//     (e.ctrlKey && e.key === "r") ||
-//     (e.ctrlKey && e.shiftKey && e.key === "R")
-//   ) {
-//     e.preventDefault();
-//     alert("🚫 Reload is blocked. You can't escape the challenge now!");
-//   }
-// });
+// Block refresh keys
+document.addEventListener("keydown", function (e) {
+  if (
+    e.key === "F5" ||
+    (e.ctrlKey && e.key === "r") ||
+    (e.ctrlKey && e.shiftKey && e.key === "R")
+  ) {
+    e.preventDefault();
+    alert("🚫 Reload is blocked. You can't escape the challenge now!");
+  }
+});
 
-// // Disable right click (common way to refresh)
-// window.addEventListener("contextmenu", function (e) {
-//   e.preventDefault();
-//   alert("🛑 Right-click is disabled. No sneaky refreshes!");
-// });
+// Disable right click (common way to refresh)
+window.addEventListener("contextmenu", function (e) {
+  e.preventDefault();
+  alert("🛑 Right-click is disabled. No sneaky refreshes!");
+});
 
-// // Warn if mouse tries to leave browser window (maybe heading for reload)
-// document.addEventListener("visibilitychange", () => {
-//   if (document.visibilityState === "hidden") {
-//     alert("🚨 Don't switch tabs or reload! You’re in a challenge now!");
-//   }
-// });
+// Warn if mouse tries to leave browser window (maybe heading for reload)
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "hidden") {
+    alert("🚨 Don't switch tabs or reload! You’re in a challenge now!");
+  }
+});
 
 
-// window.addEventListener("beforeunload", function (e) {
-//   e.preventDefault();
-//   this.alert( "🚫 Reloading will destroy your progress!");
-// });
+window.addEventListener("beforeunload", function (e) {
+  e.preventDefault();
+  this.alert( "🚫 Reloading will destroy your progress!");
+});
 
-// // Wait until question is injected, then init Quill and Run Code logic
-// document.addEventListener('DOMContentLoaded', () => {
-//   if (localStorage.getItem("questionGenerated") === "true") {
-//     initQuillEditor();
-//   }
-// });
+// Wait until question is injected, then init Quill and Run Code logic
+document.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem("questionGenerated") === "true") {
+    initQuillEditor();
+  }
+});
 
 function initQuillEditor() {
   const editorContainer = document.getElementById('editor');
