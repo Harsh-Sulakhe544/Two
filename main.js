@@ -104,18 +104,18 @@ document.getElementById('loadQuestion').onclick = (event) => {
   const box = document.getElementById('question-box');
   box.innerHTML = `
   <div class="question-flex-container">
-    <img src="static/Q1.png" alt="Your Question" class="question-img" />
+    <img src="static/Q1.png" alt="Your Brain-Teaser Question" class="question-img" />
     <div class="question-text">
-      <h3>🧠 <strong>Chapati Overflow Paradox</strong></h3>
+      <h3>🧠 <strong>Chapati Overflow Paradox</strong> awaits your genius!</h3>
       <p>
-        <strong>L</strong> is the length of the combination of Chapathi and Ghee Overflow.<br>
-        <strong>V</strong> is the veggies’ surface area (radius = R).<br>
-        <strong>S1</strong> and <strong>S2</strong> are Sabji's areas (diameters d₁ and d₂).<br>
-        <br>
-        “Find the area remaining empty on your plate. Write code for it.”
+        Imagine a tasty puzzle on your plate: <strong>L</strong> is the combined length of Chapati and flowing Ghee,<br>
+        <strong>V</strong> represents the veggies’ surface area (radius = R),<br>
+        and <strong>S1</strong> &amp; <strong>S2</strong> are the Sabji areas, defined by diameters d₁ and d₂.<br><br>
+        <strong>Your mission:</strong> Calculate the empty area left on this delicious canvas. Can your code solve it?<br>
+        Put your logic to the test and watch the magic unfold!
       </p>
       <p>
-        <strong>Languages:</strong> C/C++/Python/Java/JS <br>
+        <strong>Languages accepted:</strong> C / C++ / Python / Java / JavaScript<br>
         <strong>Default:</strong> C/C++
       </p>
     </div>
@@ -124,12 +124,13 @@ document.getElementById('loadQuestion').onclick = (event) => {
     <div id="editor" style="height: 300px; width:100%;"></div>
   </div>
   <div style="text-align:center;">
-    <button id="runCodeBtn" style="background:#007bff; color:white; padding:10px 20px; margin-top:14px; cursor:pointer; margin-bottom:14px;">💻 Run Code</button>
+    <button id="runCodeBtn" style="background:#007bff; color:white; padding:10px 20px; margin-top:14px; cursor:pointer; margin-bottom:14px;">💻 Run Your Code & Dazzle Us!</button>
     <div id="gdb-link" style="margin-top:10px; display:none;">
-      <small>Need full power? <a href="https://www.onlinegdb.com/#" target="_blank" style="margin-bottom:14px;">Open in GDB Editor ↗</a></small>
+      <small>Want full IDE power? <a href="https://www.onlinegdb.com/#" target="_blank" style="margin-bottom:14px;">Open in GDB Editor ↗</a></small>
     </div>
   </div>
 `;
+
 
   // Setup Ace Editor
   const editor = ace.edit("editor");
