@@ -24,7 +24,7 @@ nav {
 h2{
   border-radius: 12px;
 }
-.nav-link {
+/* .nav-link {
   color: white;
   font-weight: bold;
   background-color: red;
@@ -33,6 +33,40 @@ h2{
   padding: 6px 10px;
   border-radius: 6px;
   cursor: pointer;
+} */
+
+/* Navbar container as flexbox */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* space between left and right */
+  background-color: cornsilk; /* keeping the red background consistent with .nav-link */
+  padding: 10px 20px;
+  color: blue;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.nav-link {
+  background-color: burlywood;
+}
+/* Left and right containers take only needed size */
+.nav-left, .nav-right {
+  flex: 0 0 auto;
+}
+
+/* Center container grows to fill remaining space and centers its content */
+.nav-center {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center; /* center the logo horizontally */
+}
+
+/* Styling the nav-link text */
+.nav-link {
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
 }
 
 
