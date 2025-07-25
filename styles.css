@@ -2,7 +2,7 @@
 body, html {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Roboto', 'Open Sans';
   overflow-x: hidden;
   background: #f9f9f9;
   color: #111;
@@ -24,23 +24,13 @@ nav {
 h2{
   border-radius: 12px;
 }
-/* .nav-link {
-  color: white;
-  font-weight: bold;
-  background-color: red;
-  text-decoration: none;
-  font-size: 20px;
-  padding: 6px 10px;
-  border-radius: 6px;
-  cursor: pointer;
-} */
 
 /* Navbar container as flexbox */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between; /* space between left and right */
-  background-color: cornsilk; /* keeping the red background consistent with .nav-link */
+  background-color: rgb(193, 183, 144); /* keeping the red background consistent with .nav-link */
   padding: 10px 20px;
   color: blue;
   font-weight: bold;
@@ -85,16 +75,6 @@ h2{
 
 #solveBtn:hover {
   background-color: #218838;
-}
-
-#slogan {
-  background: goldenrod;
-  color: #fff;
-  text-align: center;
-  font-size: 18px;
-  padding: 12px;
-  font-weight: bold;
-  letter-spacing: 1px;
 }
 
 /* Section Styling */
@@ -227,3 +207,14 @@ footer {
     margin: 12px auto 0 auto;
   }
 }
+
+#success-banner {
+  background: linear-gradient(90deg, #ffd700, #ff9900);
+  color: #000;
+  text-align: center;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+

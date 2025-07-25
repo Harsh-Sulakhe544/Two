@@ -156,57 +156,57 @@ editor.setOptions({
 };
 
 
-// Block right-click
-document.addEventListener('contextmenu', e => e.preventDefault());
+// // Block right-click
+// document.addEventListener('contextmenu', e => e.preventDefault());
 
-// Block copy, cut, paste
-['copy', 'cut', 'paste'].forEach(evt =>
-  document.addEventListener(evt, e => e.preventDefault())
-);
+// // Block copy, cut, paste
+// ['copy', 'cut', 'paste'].forEach(evt =>
+//   document.addEventListener(evt, e => e.preventDefault())
+// );
 
-// Block Ctrl+U, Ctrl+Shift+I, F12 (Inspect)
-document.addEventListener('keydown', function(e) {
-  if (
-    (e.ctrlKey && e.key === 'u') || // view source
-    (e.ctrlKey && e.shiftKey && e.key === 'I') || // dev tools
-    e.key === 'F12'
-  ) {
-    alert("Don't ❌ use Inspect 💽 Option to copy the question ❓.")
-    e.preventDefault();
+// // Block Ctrl+U, Ctrl+Shift+I, F12 (Inspect)
+// document.addEventListener('keydown', function(e) {
+//   if (
+//     (e.ctrlKey && e.key === 'u') || // view source
+//     (e.ctrlKey && e.shiftKey && e.key === 'I') || // dev tools
+//     e.key === 'F12'
+//   ) {
+//     alert("Don't ❌ use Inspect 💽 Option to copy the question ❓.")
+//     e.preventDefault();
 
-  }
-});
+//   }
+// });
 
-// Block refresh keys
-document.addEventListener("keydown", function (e) {
-  if (
-    e.key === "F5" ||
-    (e.ctrlKey && e.key === "r") ||
-    (e.ctrlKey && e.shiftKey && e.key === "R")
-  ) {
-    e.preventDefault();
-    alert("🚫 Reload is blocked. You can't escape the challenge now!");
-  }
-});
+// // Block refresh keys
+// document.addEventListener("keydown", function (e) {
+//   if (
+//     e.key === "F5" ||
+//     (e.ctrlKey && e.key === "r") ||
+//     (e.ctrlKey && e.shiftKey && e.key === "R")
+//   ) {
+//     e.preventDefault();
+//     alert("🚫 Reload is blocked. You can't escape the challenge now!");
+//   }
+// });
 
-// Disable right click (common way to refresh)
-window.addEventListener("contextmenu", function (e) {
-  e.preventDefault();
-  alert("🛑 Right-click is disabled. No sneaky refreshes!");
-});
+// // Disable right click (common way to refresh)
+// window.addEventListener("contextmenu", function (e) {
+//   e.preventDefault();
+//   alert("🛑 Right-click is disabled. No sneaky refreshes!");
+// });
 
-// Warn if mouse tries to leave browser window (maybe heading for reload)
-document.addEventListener("visibilitychange", () => {
-  if (document.visibilityState === "hidden") {
-    alert("🚨 Don't switch tabs or reload! You’re in a challenge now!");
-  }
-});
+// // Warn if mouse tries to leave browser window (maybe heading for reload)
+// document.addEventListener("visibilitychange", () => {
+//   if (document.visibilityState === "hidden") {
+//     alert("🚨 Don't switch tabs or reload! You’re in a challenge now!");
+//   }
+// });
 
 
-window.addEventListener("beforeunload", function (e) {
-  e.preventDefault();
-  this.alert( "🚫 Reloading will destroy your progress!");
-});
+// window.addEventListener("beforeunload", function (e) {
+//   e.preventDefault();
+//   this.alert( "🚫 Reloading will destroy your progress!");
+// });
 
 // Wait until question is injected, then init Quill and Run Code logic
 document.addEventListener('DOMContentLoaded', () => {
