@@ -79,6 +79,17 @@ new Chart(ctx, {
   }
 });
 
+// effects to make that radar-chart stable 
+// 🟢 Force resize after DOM is ready :  
+window.addEventListener('load', () => {
+  radarChart.resize();
+});
+
+// 🟢 Also resize on window resize:
+window.addEventListener('resize', () => {
+  radarChart.resize();
+});
+
 // Modal Trigger Logic
 const modal = document.getElementById('modal');
 const btn = document.getElementById('solveBtn');
