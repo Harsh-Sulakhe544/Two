@@ -38,7 +38,7 @@ h2{
 }
 
 .nav-link {
-  background-color: burlywood;
+  background-color: whitesmoke;
 }
 /* Left and right containers take only needed size */
 .nav-left, .nav-right {
@@ -50,6 +50,7 @@ h2{
   flex: 1 1 auto;
   display: flex;
   justify-content: center; /* center the logo horizontally */
+  cursor: pointer;
 }
 
 /* Styling the nav-link text */
