@@ -136,9 +136,15 @@ document.getElementById('loadQuestion').onclick = (event) => {
   </div>
   <div style="text-align:center;">
     <button id="runCodeBtn" style="background:#007bff; color:white; padding:10px 20px; margin-top:14px; cursor:pointer; margin-bottom:14px;">💻 Run Your Code & Dazzle Us!</button>
-    <div id="gdb-link" style="margin-top:10px; display:none;">
-      <small>Want full IDE power? <a href="https://www.onlinegdb.com/#" target="_blank" style="margin-bottom:14px;">Open in GDB Editor ↗</a></small>
+
+    <div id="output-section" style="display:none; background:#1e1e1e; color:#00ff99;  padding:10px;  margin:20px;  border-radius:12px; font-family: monospace;">
+    <h3> Output:</h3>
+    <pre id="output-result">// Output will appear here...</pre>
     </div>
+
+  <div id="gdb-link" style="margin-top:10px; display:none;">
+  <small>Want full IDE power? <a href="https://www.onlinegdb.com/#" target="_blank" style="margin-bottom:14px;">Open in GDB Editor ↗</a></small>
+  </div>
   </div>
 `;
 
@@ -155,15 +161,43 @@ editor.setOptions({
 });
   // Simulate "Run Code"
   document.getElementById('runCodeBtn').onclick = () => {
-    const code = editor.getValue();
+  const code = editor.getValue();
+  console.log("Running code:\n", code);
 
-    console.log("Running code:\n", code);
-    alert("🚀 Code captured! For full execution, open in GDB Editor ↗");
-    // Or send to backend / save / simulate output here
+  let simulatedOutput = "";
 
-     // 👇 Show the GDB link after run button clicked
-    document.getElementById('gdb-link').style.display = 'block';
-  };
+  // Regex for all return statements
+  const returnMatches = [...code.matchAll(/return\s+["'](.+?)["']/g)];
+
+  // Regex for all printf statements
+  const printfMatches = [...code.matchAll(/printf\s*\(\s*["'](.+?)["']/g)];
+
+  // Regex for all cout statements (single or double quotes)
+  const coutMatches = [...code.matchAll(/cout\s*<<\s*["'](.+?)["']/g)];
+
+  let outputs = [];
+
+  // Collect all matched outputs in order
+  returnMatches.forEach(match => outputs.push(match[1]));
+  printfMatches.forEach(match => outputs.push(match[1]));
+  coutMatches.forEach(match => outputs.push(match[1]));
+
+  if (outputs.length > 0) {
+    simulatedOutput = outputs.join('\n'); // Line by line output
+  } else {
+    simulatedOutput = "// ℹ️ No return, printf, or cout statements found. Write them to see output.";
+  }
+
+  // Show Output Section with Simulated Output
+  document.getElementById('output-section').style.display = 'block';
+  document.getElementById('output-result').innerText = simulatedOutput;
+
+  // Show GDB Link as well
+  document.getElementById('gdb-link').style.display = 'block';
+
+  alert("🚀 Code captured! For full execution, open in GDB Editor ↗");
+};
+
 };
 
 
@@ -218,6 +252,7 @@ window.addEventListener("beforeunload", function (e) {
   e.preventDefault();
   this.alert( "🚫 Reloading will destroy your progress!");
 });
+
 
 // Wait until question is injected, then init Quill and Run Code logic
 document.addEventListener('DOMContentLoaded', () => {
