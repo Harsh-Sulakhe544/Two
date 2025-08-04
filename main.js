@@ -106,10 +106,27 @@ setTimeout(() => {
   modal.style.display = 'block';
 }, 1000 * (30 + Math.random() * 15));
 
+// Helper: Get initial comment line based on language
+function getInitialComment(lang) {
+  if (lang === "python") return "# Write your code here...\n";
+  return "// Write your code here...\n"; // for c_cpp and javascript
+}
+
+// for the generate question button 
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.className = "show";
+
+  setTimeout(() => {
+    toast.className = toast.className.replace("show", "");
+  }, 4000); // show for 4 seconds
+}
+
 // Inject the question image into the top question-box when Submit is clicked
 document.getElementById('loadQuestion').onclick = (event) => {
   event.preventDefault();
-  alert("💡 Challenge generated! Think you can solve it? Prove it today, coder 🔥");
+  showToast("💡 Challenge generated! Think you can solve it? Prove it today, coder 🔥");
 
   modal.style.display = 'none';
   const box = document.getElementById('question-box');
@@ -117,6 +134,8 @@ document.getElementById('loadQuestion').onclick = (event) => {
   <div class="question-flex-container">
     <img src="static/Q1.png" alt="Your Brain-Teaser Question" class="question-img" />
     <div class="question-text">
+      <h1 style="text-align:center; color: goldenrod; margin-bottom: 0; margin-top: 1rem;">🔥 The Ultimate Challenge Awaits! ❓ Can You Solve It? ⁉️</h1>
+      <br>
       <h3>🧠 <strong>Chapati Overflow Paradox</strong> awaits your genius!</h3>
       <p>
         Imagine a tasty puzzle on your plate: <strong>L</strong> is the combined length of Chapati and flowing Ghee,<br>
@@ -131,74 +150,171 @@ document.getElementById('loadQuestion').onclick = (event) => {
       </p>
     </div>
   </div>
+  <h1 style="
+    color: #ffd700;
+    margin-top: 3rem;
+    margin-bottom: 1.2rem;
+    text-align: center;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'sans-serif';
+    font-size: 2.6rem;
+    letter-spacing: 0.04em;
+    text-shadow: 0 2px 24px rgba(255,215,0,0.45), 0 1px 0 #85671a;
+    font-weight: 800;
+  ">
+    🚀 Warm Up Your Coding Basics
+    <span style="display: block; font-size: 1.2rem; color: #bbb; font-weight: 500; margin-top: 0.6rem;">
+      Jump in, experiment, and get sharp—no sign-up needed.
+    </span>
+  </h1>
+
+  <div class="language-selector-wrapper">
+  <span class="language-label">Select the Language to Code</span>
+  <select id="languageSelector" class="language-select">
+    <option value="c_cpp" selected>C/C++</option>
+    <option value="javascript">JavaScript</option>
+    <option value="python">Python</option>
+  </select>
+</div>
+
+
   <div class="responsive-editor-wrap">
     <div id="editor" style="height: 300px; width:100%;"></div>
   </div>
+
   <div style="text-align:center;">
     <button id="runCodeBtn" style="background:#007bff; color:white; padding:10px 20px; margin-top:14px; cursor:pointer; margin-bottom:14px;">💻 Run Your Code & Dazzle Us!</button>
 
     <div id="output-section" style="display:none; background:#1e1e1e; color:#00ff99;  padding:10px;  margin:20px;  border-radius:12px; font-family: monospace;">
-    <h3> Output:</h3>
-    <pre id="output-result">// Output will appear here...</pre>
+      <h3> Output:</h3>
+      <pre id="output-result">// Output will appear here...</pre>
     </div>
 
-  <div id="gdb-link" style="margin-top:10px; display:none;">
-  <small>Want full IDE power? <a href="https://www.onlinegdb.com/#" target="_blank" style="margin-bottom:14px;">Open in GDB Editor ↗</a></small>
-  </div>
-  </div>
-`;
+    <div id="gdb-link" style="
+      background: linear-gradient(90deg, #FFD700, #FFC107);
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      margin: 3rem 0;
+      height: 6rem;
+      display: none;
+      font-weight: 700;
+      font-size: 24px;
+      box-shadow: 0 0 15px #00ffd5, 0 0 25px #00ffd5 inset;
+      border-radius: 16px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    ">
+      <a href="https://www.onlinegdb.com/#" target="_blank" style="
+        display: inline-block;
+        background: linear-gradient(45deg, #ff6a00, #ee0979, #ff6a00);
+        background-size: 200% 200%;
+        animation: gradientShift 4s ease infinite;
+        color: white;
+        padding: 1rem 2.5rem;
+        border-radius: 28px;
+        text-decoration: none;
+        box-shadow: 0 4px 25px rgba(238, 9, 121, 0.7), 0 0 20px #ff6a00 inset;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+        user-select: none;
+        font-size: 1.25rem;
+      ">
+        Want full IDE power? 💪 Open in GDB Editor ↗
+      </a>
 
+      <style>
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        #gdb-link a:hover {
+          box-shadow: 0 6px 30px rgba(238, 9, 121, 1), 0 0 30px #ff6a00 inset;
+          transform: scale(1.05);
+        }
+      </style>
+    </div>
+  </div>
+  `;
 
   // Setup Ace Editor
   const editor = ace.edit("editor");
   editor.setTheme("ace/theme/monokai");
-  editor.session.setMode("ace/mode/c_cpp"); // Default to C++
-  editor.setValue("// Write your code here...\n", 1);
 
-  // Increase font size for better readability
+  const languageSelector = document.getElementById('languageSelector');
+
+  function setEditorMode(language) {
+    let mode = "ace/mode/c_cpp"; // default
+    if (language === "javascript") mode = "ace/mode/javascript";
+    else if (language === "python") mode = "ace/mode/python";
+    editor.session.setMode(mode);
+  }
+
+  // Initial editor setup with mode and comment line
+  setEditorMode(languageSelector.value);
+  editor.setValue(getInitialComment(languageSelector.value), 1);
+
+    // Increase font size for better readability
 editor.setOptions({
   fontSize: "20px"
 });
-  // Simulate "Run Code"
+
+  // Update editor mode and comment when language changes
+  languageSelector.addEventListener('change', function() {
+    setEditorMode(this.value);
+    editor.setValue(getInitialComment(this.value), 1);
+  });
+
+  // Run Code simulation event (existing logic remains)
   document.getElementById('runCodeBtn').onclick = () => {
-  const code = editor.getValue();
-  console.log("Running code:\n", code);
+    const code = editor.getValue();
+    const selectedLang = languageSelector.value;
+    console.log("Running code:\n", code);
 
-  let simulatedOutput = "";
+    let outputs = [];
 
-  // Regex for all return statements
-  const returnMatches = [...code.matchAll(/return\s+["'](.+?)["']/g)];
+    if (selectedLang === "c_cpp") {
+      const returnMatches = [...code.matchAll(/return\s+["'](.+?)["']/g)];
+      const printfMatches = [...code.matchAll(/printf\s*\(\s*["'](.+?)["']/g)];
+      const coutMatches = [...code.matchAll(/cout\s*<<\s*["'](.+?)["']/g)];
 
-  // Regex for all printf statements
-  const printfMatches = [...code.matchAll(/printf\s*\(\s*["'](.+?)["']/g)];
+      returnMatches.forEach(match => outputs.push(match[1]));
+      printfMatches.forEach(match => outputs.push(match[1]));
+      coutMatches.forEach(match => outputs.push(match[1]));
+    } else if (selectedLang === "javascript") {
+      const consoleLogMatches = [...code.matchAll(/console\.log\s*\(\s*["'](.+?)["']/g)];
+      consoleLogMatches.forEach(m => outputs.push(m[1]));
+    } else if (selectedLang === "python") {
+      const pythonPrintMatches = [...code.matchAll(/print\s*\(\s*["'](.+?)["']\s*\)/g)];
+      pythonPrintMatches.forEach(m => outputs.push(m[1]));
+    }
 
-  // Regex for all cout statements (single or double quotes)
-  const coutMatches = [...code.matchAll(/cout\s*<<\s*["'](.+?)["']/g)];
+    let simulatedOutput = "";
+    if (outputs.length > 0) {
+      simulatedOutput = outputs.join('\n');
+    } else {
+      simulatedOutput = `// ℹ️ No output statements found for selected language (${selectedLang}). Write valid ${
+        selectedLang === "python" ? "'print()'" : selectedLang === "javascript" ? "'console.log()'" : "'return', 'printf()', or 'cout'"
+      } statements to see output.`;
+    }
 
-  let outputs = [];
+    document.getElementById('output-section').style.display = 'block';
+    document.getElementById('output-result').innerText = simulatedOutput;
+    document.getElementById('gdb-link').style.display = 'block';
 
-  // Collect all matched outputs in order
-  returnMatches.forEach(match => outputs.push(match[1]));
-  printfMatches.forEach(match => outputs.push(match[1]));
-  coutMatches.forEach(match => outputs.push(match[1]));
-
-  if (outputs.length > 0) {
-    simulatedOutput = outputs.join('\n'); // Line by line output
-  } else {
-    simulatedOutput = "// ℹ️ No return, printf, or cout statements found. Write them to see output.";
-  }
-
-  // Show Output Section with Simulated Output
-  document.getElementById('output-section').style.display = 'block';
-  document.getElementById('output-result').innerText = simulatedOutput;
-
-  // Show GDB Link as well
-  document.getElementById('gdb-link').style.display = 'block';
-
-  alert("🚀 Code captured! For full execution, open in GDB Editor ↗");
+    alert("🚀 Code captured! For full execution, open in GDB Editor ↗");
+  };
 };
 
-};
+// Helper function outside this event to generate initial comment based on language
+function getInitialComment(lang) {
+  if (lang === "python") return "# Write your code here...\n";
+  return "// Write your code here...\n"; // For c_cpp and javascript
+}
+
 
 
 // Block right-click
@@ -209,7 +325,7 @@ document.addEventListener('contextmenu', e => e.preventDefault());
   document.addEventListener(evt, e => e.preventDefault())
 );
 
-// Block Ctrl+U, Ctrl+Shift+I, F12 (Inspect)
+//  Block Ctrl+U, Ctrl+Shift+I, F12 (Inspect)
 document.addEventListener('keydown', function(e) {
   if (
     (e.ctrlKey && e.key === 'u') || // view source
@@ -240,14 +356,14 @@ window.addEventListener("contextmenu", function (e) {
   alert("🛑 Right-click is disabled. No sneaky refreshes!");
 });
 
-// Warn if mouse tries to leave browser window (maybe heading for reload)
-document.addEventListener("visibilitychange", () => {
-  if (document.visibilityState === "hidden") {
-    alert("🚨 Don't switch tabs or reload! You’re in a challenge now!");
-  }
-});
+// // Warn if mouse tries to leave browser window (maybe heading for reload)
+// document.addEventListener("visibilitychange", () => {
+//   if (document.visibilityState === "hidden") {
+//     alert("🚨 Don't switch tabs or reload! You’re in a challenge now!");
+//   }
+// });
 
-
+// reload with normal symbol
 window.addEventListener("beforeunload", function (e) {
   e.preventDefault();
   this.alert( "🚫 Reloading will destroy your progress!");
@@ -284,3 +400,6 @@ function initQuillEditor() {
   };
 }
 
+document.getElementById('proveBtn').onclick = () => {
+  document.getElementById('modal').style.display = 'block';
+};

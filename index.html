@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BrainZ Private Limited </title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel='icon' href='static/EditedLogo.png'>
   <!-- ace editor -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.14/ace.js"></script>
 </head>
@@ -29,14 +30,47 @@
   </div>
 </nav>
 
+<!-- 🚨 Truth Bomb Video Section -->
+<section id="truth-video" style="margin-top: 2rem; padding: 20px; background: linear-gradient(145deg, #000000, #1a1a1a); color: #fff; text-align: center; border-radius: 16px; box-shadow: 0 0 25px red;">
+
+  <h2 style="font-size: 2.8rem; margin-bottom: 1rem; color: #ff004f; text-shadow: 0 0 10px #ff004f;">
+    ⚠️ The Harsh Truth: Robots Are Coming For Your Job
+  </h2>
+
+  <p style="font-size: 1.3rem; color: #ffcc00; max-width: 600px; margin: 0 auto 20px;">
+    Watch this — and decide if you’ll be a Coder or a Casualty.
+  </p>
+
+  <!-- 🎥 iFrame Video Embed -->
+
+  <div style="position: relative; width: 100%; max-width: 340px; height: 600px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px pink;">
+  <!-- add allow = autoplay; -->
+  <iframe src="static/CodeSmartStayHuman.mp4" 
+          frameborder="0" 
+          allow=" encrypted-media"  
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 20px;">
+  </iframe>
+</div>
+
+  <p style="font-size: 1.2rem; margin-top: 1.5rem; color: #00ffd5;">
+    🧠 Humans Created AI. <strong>BrainZ ensures you stay in command.</strong>
+  </p>
+
+  <!-- 🟢 Call To Action Button -->
+  <button id="proveBtn" style="margin-top: 20px; background: linear-gradient(90deg, #ff004f, #ffcc00); color: black; padding: 14px 28px; font-size: 1.2rem; font-weight: bold; border-radius: 12px; cursor: pointer; box-shadow: 0 0 15px #ff004f;">
+    🚀 I’m Not a Robot — Prove It Now
+  </button>
+
+</section>
 
 <div id="question-box"></div>
+<div id="toast"></div>
 
-<section id="about-us" style="padding: 10px 20px; margin-top: 2rem; background: linear-gradient(145deg, #1c1c1c, #0f0f0f); color: #fff; text-align: center; border-radius: 18px; box-shadow: 0 0 20px #ff007f;">
+<section id="about-us" style="padding: 10px 20px; margin-top: 2rem; background: linear-gradient(145deg, #1c1c1c, #0f0f0f); color: #fff; text-align: center; border-radius: 18px; box-shadow: 0 0 20px white;">
   <h2 style="font-size: 2.8rem; margin-bottom: 1rem; color: #ff007f; text-shadow: 0 0 10px #ff007f;">🚀 About BrainZ</h2>
   
   <p style="font-size: 1.2rem; max-width: 900px; margin: 0 auto 30px; line-height: 1.8;">
-    🧪 <strong>We are a Research-Driven Coding Platform</strong> — where problems are designed like experiments, not copy-paste templates.
+    🧪 <strong>We are a Research-Driven Question Platform</strong> — where problems are designed like experiments, not copy-paste templates.
   </p>
 
   <p style="font-size: 1.2rem; max-width: 900px; margin: 0 auto 30px; line-height: 1.8;">
@@ -53,7 +87,7 @@
   <h3 style="color: #00ffd5; margin-top: 2rem;">BrainZ — <span style="color: #ffd700;">Code Smart. Stay Human. Rule the Future.</span> 🌍🧠💡</h3>
 </section>
 
-<section id="why-choose-us" style="padding: 10px 20px; margin-top: 2rem; background: #0e0e0e; color: #fff; text-align: center; border-radius: 12px;">
+<section id="why-choose-us" style="padding: 10px 20px; margin-top: 2rem; background: #0e0e0e; color: #fff; text-align: center; border-radius: 12px; box-shadow: 0 4px 30px goldenrod;">
   <h2 style="font-size: 2.5rem; margin-bottom: 1rem; background:silver;">💡 Why Choose <span style="color: #00ffd5;">BrainZ          
   </span>?</h2>
 
@@ -88,14 +122,14 @@
       <p>Solving a BrainZ question isn’t a badge. It’s a <strong>brain medal</strong>. Share it. Flaunt it.</p>
     </div>
 
-    <div style="background: white; color:black; padding: 20px; border-radius: 16px;">
+    <div style="background: white; color:black; padding: 20px; margin-bottom: 2rem; border-radius: 16px;">
       <h3>🆚 The Anti-Gamify Systems</h3>
       <p>We aren’t chasing CP. We’re chasing <strong>depth</strong>.  
        <strong>While other platforms offer CP, leaderboards, and templates — we offer thinking. Your brain. Your battle</strong>.</p>
     </div>
 
     <!-- Humans Are Better Card -->
-    <div style="background: white; color:black; padding: 20px; border-radius: 16px;">
+    <div style="background: white; color:black; padding: 20px; margin-bottom: 2rem; border-radius: 16px;">
       <h3>🧬 Why Humans Are Better</h3>
       <p>
         🤖 AI can generate — but it can’t <strong>understand context</strong>, <strong>feel ethics</strong>, or <strong>imagine the future</strong>.
@@ -105,7 +139,7 @@
     </div>
 
     <!-- Misunderstanding Card -->
-    <div style="background: white; color:black; padding: 20px; border-radius: 16px;">
+    <div style="background: white; color:black; padding: 20px; margin-bottom: 2rem;border-radius: 16px;">
       <h3>⚠️ The Misunderstanding</h3>
       <p>
         Many think AI = Instant coding. But that’s not <strong>engineering</strong>.
@@ -119,28 +153,28 @@
   </div>
 
   <!-- width="700" height="700" -->
-  <div style="box-shadow: 0 0 20px pink; margin-top:1rem;">
+  <div style="box-shadow: 0 0 20px yellow; margin-top:1rem; margin-bottom: 2rem;" class="radar">
   <canvas id="radarChart"></canvas>
 </div>
 
 </section>
 
-  <section id="our-services" style="padding: 10px 20px; margin-top:1rem; background: #141414; color: #fff; text-align: center; border-radius:12px;">
+  <section id="our-services" style="padding: 10px 20px; margin-top:3rem; margin-bottom: 2rem; background: #141414; color: #fff; text-align: center; border-radius:12px; box-shadow: 0 4px 30px lightgreen">
   <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color:goldenrod;">🚀 Our Services</h2>
 
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto;">
 
-    <div style="background: white; color:black; padding: 20px; border-radius: 16px; ">
+    <div style="background: white; color:black; padding: 20px; border-radius: 16px; margin-bottom: 2rem;">
       <h3>🕵️‍♂️ Talent Hunt for Startups & MNCs</h3>
       <p>We connect companies with <strong>raw thinkers & coders</strong> who can solve what AI can't. Forget degrees — hire minds that matter.</p>
     </div>
 
-    <div style="background: white; color:black; padding: 20px; border-radius: 16px; ">
+    <div style="background: white; color:black; padding: 20px; border-radius: 16px; margin-bottom: 2rem;">
       <h3>🏆 Hackathons & Extreme Challenges</h3>
       <p>Join <strong>next-level problem-solving events</strong> where innovation is rewarded, and code meets creativity. Prizes await the boldest minds!</p>
     </div>
 
-    <div style="background: white; color:black; padding: 20px; border-radius: 16px; ">
+    <div style="background: white; color:black; padding: 20px; border-radius: 16px; margin-bottom: 2rem;">
       <h3>🌐 Global Access</h3>
       <p>No borders, no limits. <strong>Anyone, anywhere</strong> can access BrainZ — whether you’re coding from a dorm room or a boardroom.</p>
     </div>
@@ -152,7 +186,7 @@
   <div id="modal" class="modal">
     <div class="modal-content">
       <span id="closeBtn">&times;</span>
-      <h3 style="color: purple;">JUST FOR <strong> ₹1 </strong>  </h3>
+      <h3 style="color: whitesmoke;">JUST FOR <strong> ₹1 </strong>  </h3>
       <img src="static/qr-code.jpeg" alt="QR Code" class="qr-placeholder" />
       <br />
       <button id="loadQuestion" class="submit-btn">Submit</button>
@@ -164,37 +198,37 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="main.js"></script>
 
-<section id="user-community" style="padding: 10px 20px; margin-top:1rem; background: #1a1a1a; color: #fff; text-align: center; border-radius:12px;">
+<section id="user-community" style="padding: 10px 20px; margin-top:1rem; background: #1a1a1a; color: #fff; text-align: center; border-radius:12px; box-shadow: 0 4px 30px whitesmoke;">
   <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color:#00ffd5;">🌟 Our BrainZ Community</h2>
 
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto;">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; cursor:pointer;">
 
-    <div style="background: #f5f5dc; color: #333; padding: 20px; border-radius: 16px;">
+    <div class="community-card"  style="background: #f5f5dc; color: #333; padding: 20px; border-radius: 16px;">
       <h3>👩‍🎓 Student Coders</h3>
       <p>Undergrads & freshers sharpening their <strong>real coding skills</strong> — not just solving tutorials.</p>
     </div>
 
-    <div style="background: #e0f7fa; color: #004d40; padding: 20px; border-radius: 16px;">
+    <div class="community-card" style="background: #e0f7fa; color: #004d40; padding: 20px; border-radius: 16px;">
       <h3>🚀 Startup Hackers</h3>
       <p>Building products at 2 AM? <strong>BrainZ is your problem-solving playground</strong>.</p>
     </div>
 
-    <div style="background: #fff3e0; color: #4e342e; padding: 20px; border-radius: 16px;">
+    <div class="community-card" style="background: #fff3e0; color: #4e342e; padding: 20px; border-radius: 16px; margin-bottom: 2rem;">
       <h3>🏢 MNC Developers</h3>
       <p><strong>Breaking corporate coding limits</strong> with next-gen thinking beyond JIRA tickets.</p>
     </div>
 
-    <div style="background: #e8f5e9; color: #1b5e20; padding: 20px; border-radius: 16px;">
+    <div class="community-card"  style="background: #e8f5e9; color: #1b5e20; padding: 20px; border-radius: 16px; margin-bottom: 2rem;">
       <h3>🏆 Competitive Coders</h3>
       <p>From Codeforces battles to <strong>BrainZ’s AI-resistant challenges</strong> — only real thinkers survive.</p>
     </div>
 
-    <div style="background: #ede7f6; color: #4527a0; padding: 20px; border-radius: 16px;">
+    <div class="community-card" style="background: #ede7f6; color: #4527a0; padding: 20px; border-radius: 16px; margin-bottom: 2rem;">
       <h3>🔬 Research Enthusiasts</h3>
       <p>Solving theoretical problems & experimenting with <strong>new algorithms</strong>.</p>
     </div>
 
-    <div style="background: #fce4ec; color: #880e4f; padding: 20px; border-radius: 16px;">
+    <div class="community-card" style="background: #fce4ec; color: #880e4f; padding: 20px; border-radius: 16px; margin-bottom: 2rem;">
       <h3>🤖 AI / ML Innovators</h3>
       <p>Those who create AI — and also challenge it with <strong>logic BrainZ questions</strong>.</p>
     </div>
@@ -202,37 +236,37 @@
   </div>
 </section>
 
-<section id="testimonials" style="padding: 10px 20px; margin-top:2rem; background: linear-gradient(145deg, #0f0f0f, #1c1c1c); color: #fff; text-align: center; border-radius: 18px;">
+<section id="testimonials" style="padding: 10px 20px; margin-top:3rem; margin-bottom: 2rem; background: linear-gradient(145deg, #0f0f0f, #1c1c1c); color: #fff; text-align: center; border-radius: 18px; box-shadow: 0 4px 30px blue; ">
   <h2 style="font-size: 2.8rem; margin-bottom: 1rem; color: #00ffd5; text-shadow: 0 0 10px #00ffd5;">🗣️ What Our Early Users Say</h2>
 
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto;">
 
-    <div style="backdrop-filter: blur(10px); background:white; border: 1px solid rgba(0, 255, 213, 0.3); color: green; padding: 24px; border-radius: 16px; box-shadow: 0 0 12px rgba(0, 255, 213, 0.3);">
+    <div style="backdrop-filter: blur(10px); background:white; border: 1px solid rgba(0, 255, 213, 0.3); color: green; padding: 24px; border-radius: 16px; box-shadow: 0 0 12px rgba(0, 255, 213, 0.3); cursor:pointer; ">
       <h3>Arpith Agarwal</h3>
       <p>"I thought I was good at coding until BrainZ humbled me. This is real brain-level debugging."</p>
     </div>
 
-    <div style="backdrop-filter: blur(10px); background:white; border: 1px solid rgba(255, 0, 150, 0.3); color: #ff0096; padding: 24px; border-radius: 16px; box-shadow: 0 0 12px rgba(255, 0, 150, 0.3);">
+    <div style="backdrop-filter: blur(10px); background:white; border: 1px solid rgba(255, 0, 150, 0.3); color: #ff0096; padding: 24px; border-radius: 16px; box-shadow: 0 0 12px rgba(255, 0, 150, 0.3); cursor:pointer;">
       <h3>Priya Ramesh</h3>
       <p>"No leaderboards, no noise. Just pure logic battles. It's addictive!"</p>
     </div>
 
-    <div style="backdrop-filter: blur(10px); background:white; border: 1px solid rgba(0, 150, 255, 0.3); color: #0096ff; padding: 24px; border-radius: 16px; box-shadow: 0 0 12px rgba(0, 150, 255, 0.3);">
+    <div style="backdrop-filter: blur(10px); background:white; border: 1px solid rgba(0, 150, 255, 0.3); color: #0096ff; padding: 24px; border-radius: 16px; box-shadow: 0 0 12px rgba(0, 150, 255, 0.3); cursor:pointer; ">
       <h3>Surya Singh</h3>
       <p>"Finally, a platform where AI can't spoon-feed answers. It's you vs. your brain."</p>
     </div>
 
-    <div style="backdrop-filter: blur(10px); background:white; border: 1px solid rgba(255, 215, 0, 0.3); color: brown; padding: 24px; border-radius: 16px; box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);">
+    <div style="backdrop-filter: blur(10px); background:white; border: 1px solid rgba(255, 215, 0, 0.3); color: brown; padding: 24px; border-radius: 16px; box-shadow: 0 0 12px rgba(255, 215, 0, 0.3); cursor:pointer; margin-bottom: 2rem;">
       <h3>Sneha Joshi</h3>
       <p>"Every problem here feels like a case study. It's not about syntax; it's about thinking."</p>
     </div>
 
-    <div style="backdrop-filter: blur(10px); background:white; border: 1px solid rgba(255, 85, 0, 0.3); color: #ff5500; padding: 24px; border-radius: 16px; box-shadow: 0 0 12px rgba(255, 85, 0, 0.3);">
+    <div style="backdrop-filter: blur(10px); background:white; border: 1px solid rgba(255, 85, 0, 0.3); color: #ff5500; padding: 24px; border-radius: 16px; box-shadow: 0 0 12px rgba(255, 85, 0, 0.3); cursor:pointer; margin-bottom: 2rem;">
       <h3>Priyanshu S</h3>
       <p>"Most coding sites make you feel like a typist. BrainZ makes you feel like an inventor."</p>
     </div>
 
-    <div style="backdrop-filter: blur(10px); background:white; border: 1px solid rgba(128, 0, 255, 0.3); color: #8000ff; padding: 24px; border-radius: 16px; box-shadow: 0 0 12px rgba(128, 0, 255, 0.3);">
+    <div style="backdrop-filter: blur(10px); background:white; border: 1px solid rgba(128, 0, 255, 0.3); color: #8000ff; padding: 24px; border-radius: 16px; box-shadow: 0 0 12px rgba(128, 0, 255, 0.3); cursor:pointer; margin-bottom: 2rem;">
       <h3>Khritan C</h3>
       <p>"I solved just one problem here, but it gave me more satisfaction than 100 Other Platform submissions."</p>
     </div>
@@ -241,7 +275,7 @@
 </section>
 
 
-  <section id="contact" style="background:#000; color:#fff; padding: 10px; text-align: center; margin-top:1rem; border-radius: 12px;">
+  <section id="contact" style="background:#000; color:#fff; padding: 10px; margin-bottom: 3rem; text-align: center; margin-top:3rem; border-radius: 12px; box-shadow: 0 4px 30px pink;">
   <h2 style="margin-bottom: 10px;">📞 Contact Us</h2>
   <p>Email: <a href="https://mail.google.com/mail/?view=cm&fs=1&to=itzharsh.sulakhe@gmail.com" style="color: #00ffd5;">itzharsh.sulakhe@gmail.com</a></p>
   <p>Phone: <a href="tel:+919876543210" style="color: #00ffd5;">+91 99024 51544</a></p>

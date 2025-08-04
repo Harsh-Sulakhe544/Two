@@ -4,88 +4,213 @@ body, html {
   padding: 0;
   font-family: 'Roboto', 'Open Sans';
   overflow-x: hidden;
-  background: #f9f9f9;
-  color: #111;
-
+  background: #0f0f0f;
+  color: #fff;
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
 }
 
-/* Navbar Styling */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #000;
-  padding: 12px 20px;
-  
-}
-h2{
-  border-radius: 12px;
+/* Success Banner Animation */
+#success-banner {
+  background: linear-gradient(90deg, #ff007f, #ffd700, #00ffd5);
+  background-size: 300% 300%;
+  animation: gradientShift 6s ease-in-out infinite;
+  color: #fff;
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-shadow: 0 0 8px #000;
+  text-align: center;
 }
 
-/* Navbar container as flexbox */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Navbar */
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* space between left and right */
-  background-color: rgb(193, 183, 144); /* keeping the red background consistent with .nav-link */
-  padding: 10px 20px;
-  color: blue;
-  font-weight: bold;
-  font-size: 20px;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #0f0f0f, #141E30, #243B55);
+  padding: 14px 20px;
+  border-bottom: 2px solid #00ffd5;
+  box-shadow: 0 0 10px #00ffd5, 0 0 20px #00ffd5 inset;
+  color: #fff;
 }
 
 .nav-link {
-  background-color: whitesmoke;
-}
-/* Left and right containers take only needed size */
-.nav-left, .nav-right {
-  flex: 0 0 auto;
-}
-
-/* Center container grows to fill remaining space and centers its content */
-.nav-center {
-  flex: 1 1 auto;
-  display: flex;
-  justify-content: center; /* center the logo horizontally */
-  cursor: pointer;
-}
-
-/* Styling the nav-link text */
-.nav-link {
-  cursor: pointer;
-  padding: 6px 10px;
-  border-radius: 6px;
-}
-
-
-#solveBtn {
-  background-color: #28a745;
-  color: white;
-  width: 100px;
-  border: none;
-  padding: 8px 16px;
-  font-size: 20px;
+  background: linear-gradient(145deg, #00ffd5, #ff007f);
+  color: #000;
+  padding: 6px 14px;
+  border-radius: 12px;
   font-weight: bold;
-  border-radius: 6px;
+  font-size: 1.2rem;
   cursor: pointer;
   transition: 0.3s;
 }
 
-#solveBtn:hover {
-  background-color: #218838;
+.nav-link:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #ffd700;
 }
 
-/* Section Styling */
+.nav-center img {
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+.nav-center:hover img {
+  transform: scale(3.0) rotate(360deg);
+  box-shadow: 0 0 20px #00ffd5, 0 0 40px #ff004f;
+  cursor: pointer;
+}
+
+/* Optional: subtle pulsing glow effect */
+@keyframes logoPulse {
+  0% { box-shadow: 0 0 10px #00ffd5; }
+  50% { box-shadow: 0 0 25px #ff004f; }
+  100% { box-shadow: 0 0 10px #00ffd5; }
+}
+
+.nav-center:hover img {
+  animation: logoPulse 1s infinite alternate;
+}
+
+
+/* Solve Button */
+#solveBtn {
+  background: linear-gradient(145deg, #ff007f, #00ffd5);
+  color: #fff;
+  width: 120px;
+  border: none;
+  padding: 10px 18px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 15px #ff007f, 0 0 25px #00ffd5;
+  transition: 0.3s;
+}
+
+#solveBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #ffd700, 0 0 35px #ff007f;
+}
+
+/* Sections */
 section {
   padding: 40px 20px;
-  max-width: 800px;
+  max-width: 1200px;
   margin: auto;
 }
 
-/* Modal Styling */
+/* Headings Rounded */
+h2 {
+  border-radius: 12px;
+}
+
+/* Card Glassmorphism */
+div[style*="background: white"] {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #fff !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.radar{
+  border-radius: 13px;
+}
+
+#radarChart {
+  max-width: 700px;  /* Controls maximum width */
+  max-height: 700px; /* Controls maximum height */
+  width: 100%;       /* Scales responsively */
+  height: auto;      /* Keeps aspect ratio */
+  margin: auto;
+  display: block;
+}
+
+@media (max-width: 500px) {
+  #radarChart {
+    max-width: 280px;  /* Smaller on mobile */
+    max-height: 280px;
+  }
+}
+
+div[style*="background: white"]:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ffd700, 0 0 30px #ff007f;
+}
+
+/* Question Section */
+.question-flex-container {
+  display: flex;
+  flex-direction: row;
+  gap: 36px;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 20px #ff007f, 0 0 40px #00ffd5 inset;
+  border-radius: 18px;
+  margin: 30px auto 0 auto;
+  padding: 24px;
+  max-width: 1080px;
+}
+
+.question-img {
+  width: 390px;
+  max-width: 100%;
+  height: 420px;
+  border-radius: 12px;
+  border: 2px solid #00ffd5;
+  background: #fffef3;
+  box-shadow: 0 4px 16px #3419451a;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.question-text {
+  flex: 1;
+  min-width: 220px;
+  height: 320px;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+/* Editor Neon Wrap */
+.responsive-editor-wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 26px auto 0 auto;
+  border-radius: 12px;
+  border: 2px solid #00ffd5;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 25px #ff007f, 0 0 40px #00ffd5 inset;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 810px) {
+  .question-flex-container {
+    flex-direction: column;
+    padding: 14px;
+    gap: 16px;
+  }
+
+  .responsive-editor-wrap {
+    max-width: 99vw;
+    margin: 12px auto 0 auto;
+  }
+}
+
+/* Modal Styles */
 .modal {
   display: none;
   position: fixed;
@@ -98,14 +223,26 @@ section {
 }
 
 .modal-content {
-  background: rgb(226, 189, 96);
-  color: #000;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
   margin: 10% auto;
   padding: 30px;
-  width: 300px;
+  width: 340px;
   text-align: center;
   border-radius: 10px;
-  position: relative;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 20px #00ffd5, 0 0 30px #ff007f;
+  animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  from {
+    box-shadow: 0 0 20px #00ffd5, 0 0 30px #ff007f;
+  }
+  to {
+    box-shadow: 0 0 40px #ffd700, 0 0 60px #00ffd5;
+  }
 }
 
 #closeBtn {
@@ -118,104 +255,196 @@ section {
   color: red;
 }
 
-.qr-code {
-  width: 100px;
-  height: 100px;
-  margin: 20px 0;
-  border: 2px dashed #ccc;
+.qr-placeholder {
+  height: 240px;
+  width: 240px;
+  margin-top: 10px;
 }
 
-.qr-placeholder {
-    height: 240px;
-    width: 240px;
-}
 .submit-btn {
   background-color: #000;
   color: white;
   border: none;
-  padding: 8px 20px;
-  border-radius: 6px;
+  padding: 10px 24px;
+  border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 0 0 10px #ffd700;
+  transition: 0.3s;
 }
 
+.submit-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff007f, 0 0 30px #00ffd5;
+}
+
+/* Footer Glow */
 footer {
-  background-color: #000;
+  background: #000;
   color: #fff;
   text-align: center;
-  padding: 14px;
-  font-size: 14px;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  margin-top: 40px;
+  padding: 16px;
+  font-size: 0.9rem;
+  border-top: 2px solid #00ffd5;
+  box-shadow: 0 0 20px #ff007f inset;
+  animation: pulseFooter 2s infinite alternate;
 }
 
-/* styles for question,text and editor  */
-.question-flex-container {
-  display: flex;
-  flex-direction: row;
-  gap: 36px;
-  align-items: flex-start;
-  border: 3px solid #563d7c; /* premium border */
-  border-radius: 18px;
-  box-shadow: 0 8px 32px rgba(100, 40, 180, 0.13), 0 2px 9px #e0bfff;
-  background: linear-gradient(120deg, #392467 40%, #ffd700 100%);
-  margin: 30px auto 0 auto;
-  padding: 24px;
-  max-width: 1080px;
+@keyframes pulseFooter {
+  from { box-shadow: 0 0 10px #00ffd5 inset; }
+  to { box-shadow: 0 0 20px #ffd700 inset; }
 }
 
-.question-img {
-  width: 390px;
-  max-width: 100%;
-  height: 420px; /*change this and see*/
-  border-radius: 12px;
-  border: 2px solid #ffd700;
-  background: #fffef3;
-  box-shadow: 0 4px 16px #3419451a;
-  object-fit: cover;
-  flex-shrink: 0; /* prevent shrinking */
-}
-
-.question-text {
-  flex: 1;
-  min-width: 220px;
-  height: 320px; /*change  this and see*/
-  color: whitesmoke;
-  font-size: 1.1rem;
-}
-
-.responsive-editor-wrap {
-  width: 100%;
-  max-width: 1200px;
-  margin: 26px auto 0 auto;
-  border-radius: 12px;
-  box-shadow: 0 3px 20px #ffd7004d;
-  overflow: hidden;
-  border: 2px solid #563d7c;
-  background: #232323;
-}
-
-@media (max-width: 810px) {
-  .question-flex-container {
-    flex-direction: column;
-    padding: 14px;
-    gap: 16px;
+@media (max-width: 600px) {
+  .question-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
-  .responsive-editor-wrap {
-    max-width: 99vw;
-    margin: 12px auto 0 auto;
+
+  .question-text {
+    font-size: 0.95rem;
+    height: auto;
   }
 }
 
-#success-banner {
-  background: linear-gradient(90deg, #ffd700, #ff9900);
-  color: #000;
-  text-align: center;
-  padding: 10px;
-  font-size: 1rem;
+@media (max-width: 500px) {
+  .modal-content {
+    width: 90%;
+    margin: 30% auto;
+    padding: 20px;
+  }
+
+  .qr-placeholder {
+    height: 180px;
+    width: 180px;
+  }
+
+  #closeBtn {
+    font-size: 30px;
+    top: 5px;
+    right: 10px;
+  }
+
+  .modal-content p, .modal-content h2 {
+    font-size: 1rem;
+  }
+}
+
+
+  #user-community .community-card {
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 16px;
+  }
+
+  #user-community .community-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 213, 0.7), 0 0 40px rgba(255, 0, 150, 0.5);
+    background: linear-gradient(135deg, #1a1a1a, #333333);
+    color: #ffd700;
+  }
+
+  #user-community .community-card h3 {
+    transition: color 0.3s ease;
+  }
+
+  #user-community .community-card:hover h3 {
+    color: orange;
+  }
+
+  #user-community .community-card:hover p strong {
+    color: #ff007f;
+  }
+
+#toast {
+  visibility: hidden;
+  min-width: 320px;
+  max-width: 400px;
+  margin-left: -160px;
+  background: linear-gradient(90deg, #ffd700, #ffc107);
+  color: black;
   font-weight: bold;
-  letter-spacing: 1px;
+  text-align: center;
+  border-radius: 25px;
+  padding: 16px 30px;
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  bottom: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  box-shadow: 0 0 15px #00ffd5, 0 0 30px #00ffd5 inset;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
+
+#toast.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.language-selector-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-bottom: 3rem;
+  flex-wrap: nowrap;
+}
+
+/* Style label */
+.language-label {
+  color: whitesmoke;
+  font-size: 16px;
+  font-weight: bold;
+  background: linear-gradient(145deg, #141E30, #243B55);
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: 2px solid #00ffd5;
+  letter-spacing: 0.05em;
+  cursor: default;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* Style select as before */
+.language-select {
+  font-size: 16px;
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #141E30, #243B55);
+  border: 2px solid #00ffd5;
+  color: #00ffd5;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  min-width: 160px;
+}
+
+/* Hover and focus for select */
+.language-select:hover,
+.language-select:focus {
+  background: linear-gradient(145deg, #243B55, #141E30);
+  box-shadow: 0 0 10px #00ffd5, 0 0 20px #00ffd5 inset;
+  outline: none;
+  color: #00ffd5;
+}
+
+/* Responsive: stack label & select vertically on narrow screens */
+@media (max-width: 480px) {
+  .language-selector-wrapper {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  
+  .language-label,
+  .language-select {
+    width: 100%;
+    min-width: unset;
+    margin-bottom: 0.8rem;
+  }
+}
+
 
