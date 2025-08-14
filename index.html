@@ -43,14 +43,13 @@
 
   <!-- 🎥 iFrame Video Embed -->
 
-  <div style="position: relative; width: 100%; max-width: 340px; height: 600px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px pink;">
-  <!-- add allow = autoplay; -->
-  <iframe src="static/CodeSmartStayHuman.mp4" 
-          frameborder="0" 
-          allow=" encrypted-media"  
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 20px;">
-  </iframe>
+  <div style="position: relative; width: 100%; max-width: 340px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 0 30px pink; padding: 24px 12px;">
+  <audio controls preload="auto" style="width: 100%; border-radius: 16px; background: #222; box-shadow: 0 0 12px #ffcc00;">
+    <source src="static/basicAudio.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 </div>
+
 
   <p style="font-size: 1.2rem; margin-top: 1.5rem; color: #00ffd5;">
     🧠 Humans Created AI. <strong>BrainZ ensures you stay in command.</strong>
@@ -221,7 +220,7 @@
       <br />
     </div>
   </div> -->
-  <button id="loadQuestion" class="submit-btn">Submit</button>
+  <button id="loadQuestion" class="submit-btn"></button>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
