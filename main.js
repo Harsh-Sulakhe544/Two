@@ -90,21 +90,21 @@ window.addEventListener('resize', () => {
   radarChart.resize();
 });
 
-// Modal Trigger Logic
-const modal = document.getElementById('modal');
+// Modal Trigger Logic -- QR-CODE
+// const modal = document.getElementById('modal');
 const btn = document.getElementById('solveBtn');
-const span = document.getElementById('closeBtn');
+// const span = document.getElementById('closeBtn');
 
-btn.onclick = () => modal.style.display = 'block';
-span.onclick = () => modal.style.display = 'none';
-window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; };
+ btn.onclick = () => document.getElementById('loadQuestion').click(); // directly load the question;
+// span.onclick = () => modal.style.display = 'none';
+// window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; };
 
-// Auto trigger after 30-45 seconds
+// // Auto trigger after 30-45 seconds
 
-setTimeout(() => {
-  // 💡 Only show the modal — never auto-generate the question!
-  modal.style.display = 'block';
-}, 1000 * (30 + Math.random() * 15));
+// setTimeout(() => {
+//   // 💡 Only show the modal — never auto-generate the question!
+//   modal.style.display = 'block';
+// }, 1000 * (30 + Math.random() * 15));
 
 // Helper: Get initial comment line based on language
 function getInitialComment(lang) {
@@ -128,7 +128,7 @@ document.getElementById('loadQuestion').onclick = (event) => {
   event.preventDefault();
   showToast("💡 Challenge generated! Think you can solve it? Prove it today, coder 🔥");
 
-  modal.style.display = 'none';
+  // modal.style.display = 'none';
   const box = document.getElementById('question-box');
   box.innerHTML = `
   <div class="question-flex-container">
@@ -356,12 +356,6 @@ window.addEventListener("contextmenu", function (e) {
   alert("🛑 Right-click is disabled. No sneaky refreshes!");
 });
 
-// // Warn if mouse tries to leave browser window (maybe heading for reload)
-// document.addEventListener("visibilitychange", () => {
-//   if (document.visibilityState === "hidden") {
-//     alert("🚨 Don't switch tabs or reload! You’re in a challenge now!");
-//   }
-// });
 
 // reload with normal symbol
 window.addEventListener("beforeunload", function (e) {
@@ -401,5 +395,6 @@ function initQuillEditor() {
 }
 
 document.getElementById('proveBtn').onclick = () => {
-  document.getElementById('modal').style.display = 'block';
+  // document.getElementById('modal').style.display = 'block';
+  document.getElementById('loadQuestion').click(); // directly load the question  
 };
