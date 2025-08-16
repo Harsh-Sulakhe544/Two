@@ -1,27 +1,28 @@
 // Radar Chart - Premium Golden Feel
+// Radar Chart - Professional & Reality-Check AI Landscape
 const ctx = document.getElementById('radarChart').getContext('2d');
 
 const data = {
   labels: ['Creativity', 'Debugging', 'Problem Solving', 'Empathy', 'Ethics', 'Imagination'],
   datasets: [
     {
-      label: 'Humans',
-      data: [100, 95, 90, 100, 95, 98],
-      backgroundColor: 'rgba(255, 215, 0, 0.3)', // golden translucent
-      borderColor: 'blue',
-      pointBackgroundColor: 'black',
-      pointBorderColor: 'white',
+      label: 'AI',
+      data: [98, 97, 95, 65, 60, 75], // AI dominating technical fields, approaching human-level creativity
+      backgroundColor: 'rgba(255, 165, 0, 0.5)', // orange translucent
+      borderColor: 'pink',
+      pointBackgroundColor: 'purple',
+      pointBorderColor: '#cc0000',
       borderWidth: 5,
       pointRadius: 6,
       pointHoverRadius: 8
     },
     {
-      label: 'AI',
-      data: [50, 40, 30, 0, 0, 20],
-      backgroundColor: 'orange', // light red
-      borderColor: 'pink',
-      pointBackgroundColor: 'purple',
-      pointBorderColor: '#cc0000',
+      label: 'Humans',
+      data: [72, 88, 82, 92, 87, 98], // Humans leading crucial emotional and ethical dimensions
+      backgroundColor: 'rgba(255, 215, 0, 0.3)', // golden translucent
+      borderColor: 'blue',
+      pointBackgroundColor: 'black',
+      pointBorderColor: 'white',
       borderWidth: 5,
       pointRadius: 5,
       pointHoverRadius: 7
@@ -34,32 +35,61 @@ new Chart(ctx, {
   data: data,
   options: {
     responsive: true,
-    
+    animation: {
+      duration: 1600,
+      easing: 'easeInOutCubic'
+    },
     plugins: {
       legend: {
         labels: {
           color: '#fff',
           font: {
-            size: 16,
+            size: 18,
             weight: 'bold'
           }
         }
       },
       title: {
         display: true,
-        text: '⚡ Human Intelligence vs AI Coding Capabilities',
+        text: '⚡ AI Taking Over: The New Reality Check for Human Intelligence',
+        color: 'pink',
         font: {
-          size: 20,
+          size: 24,
           weight: 'bold'
-        },
-        color: 'pink'
+        }
+      },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            return `${context.dataset.label}: ${context.parsed.r} / 100`;
+          },
+          afterBody: function(context) {
+            const label = context[0].dataset.label;
+            const val = context[0].parsed.r;
+            if (label === 'AI' && val >= 90) {
+              return '🚀 Areas where AI is decisively taking over';
+            }
+            if (label === 'AI' && val < 70) {
+              return '⚠️ Critical areas where AI still requires responsible improvement';
+            }
+            if (label === 'Humans' && val >= 90) {
+              return '✨ Core human strengths essential for ethical and creative leadership';
+            }
+            if (label === 'Humans' && val < 80) {
+              return '⚠️ Opportunities for humans to sharpen skills and adapt';
+            }
+            return '';
+          }
+        }
       }
     },
     scales: {
       r: {
-        angleLines: { color: 'green', borderWidth:4 },
+        angleLines: {
+          color: 'green',
+          borderWidth: 4
+        },
         grid: {
-          // silver 
           color: '#C0C0C0'
         },
         suggestedMin: 0,
@@ -70,7 +100,7 @@ new Chart(ctx, {
         pointLabels: {
           color: 'green',
           font: {
-            size: 16,
+            size: 18,
             weight: 'bold'
           }
         }
@@ -78,6 +108,7 @@ new Chart(ctx, {
     }
   }
 });
+
 
 // effects to make that radar-chart stable 
 // 🟢 Force resize after DOM is ready :  
@@ -326,17 +357,17 @@ document.addEventListener('contextmenu', e => e.preventDefault());
 );
 
 //  Block Ctrl+U, Ctrl+Shift+I, F12 (Inspect)
-document.addEventListener('keydown', function(e) {
-  if (
-    (e.ctrlKey && e.key === 'u') || // view source
-    (e.ctrlKey && e.shiftKey && e.key === 'I') || // dev tools
-    e.key === 'F12'
-  ) {
-    alert("Don't ❌ use Inspect 💽 Option to copy the question ❓.")
-    e.preventDefault();
+// document.addEventListener('keydown', function(e) {
+//   if (
+//     (e.ctrlKey && e.key === 'u') || // view source
+//     (e.ctrlKey && e.shiftKey && e.key === 'I') || // dev tools
+//     e.key === 'F12'
+//   ) {
+//     alert("Don't ❌ use Inspect 💽 Option to copy the question ❓.")
+//     e.preventDefault();
 
-  }
-});
+//   }
+// });
 
 // Block refresh keys
 document.addEventListener("keydown", function (e) {
